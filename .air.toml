@@ -1,0 +1,21 @@
+
+# File .air.toml
+
+# File atau direktori yang akan dipantau
+# Secara default, Air akan memantau semua file di direktori proyek
+root = "."
+tmp_dir = "tmp"
+[build]
+  cmd = "go build -o ./tmp/main ." # Command untuk build aplikasi
+  bin = "tmp/main"                 # Lokasi output binary
+  full_bin = "./tmp/main"          
+
+[log]
+  level = "debug"
+
+[server]
+  watch_delay = 1000 # Delay 1 detik saat memuat ulang
+
+[include]
+  # Masukkan tipe file atau direktori yang ingin dipantau
+  ext = ["go", "tpl", "html"]       # Akan memuat ulang saat file dengan ekstensi ini berubah
